@@ -14,9 +14,10 @@ interface Props {
     column: number[];
     row: number;
     onChange: (data: { column: number[], row: number }) => void;
+    onDelete: () => void
 }
 
-const SeatSectionCard: React.FC<Props> = ({ index, column, row, onChange }) => {
+const SeatSectionCard: React.FC<Props> = ({ index, column, row, onChange, onDelete }) => {
 
     const totalSeat = column.reduce((acc, current) => acc + current, 0) * row
 
@@ -27,8 +28,8 @@ const SeatSectionCard: React.FC<Props> = ({ index, column, row, onChange }) => {
             <label className="text-lg font-semibold mr-auto">Section {index + 1}</label>
             <Chip disabled><PiSeatBold /> {totalSeat}</Chip>
             <CustomDropdown id={`seat-${index + 1}-dropdown`} buttons={[{
-                label: "Delete",
-                onClick: () => null
+                label: "Delete Section",
+                onClick: onDelete
             }]}><IoIosArrowDown className="w-5 h-5" /></CustomDropdown>
         </div>
         <div className="flex flex-col gap-4">
@@ -74,6 +75,7 @@ const SeatSectionCard: React.FC<Props> = ({ index, column, row, onChange }) => {
             <TextField label="Row" onChange={(value_) => {
                 let value = value_.replace(/\D/g, '')
                 if (value.startsWith("0")) value = value.slice(1)
+                if (Number(value) < 1) value = String(1)
                 if (Number(value) > 99) value = String(99)
                 onChange({ row: Number(value), column })
 

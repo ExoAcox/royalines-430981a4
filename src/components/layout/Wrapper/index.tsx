@@ -25,7 +25,7 @@ const Wrapper: React.FC<Props> = ({ user, transparent = true, children, classNam
 
             <main
                 className={tw(
-                    tw("relative flex flex-1 min-w-[1080px] overflow-auto pt-[6rem]", sidebar ? "flex-row" : "flex-col"),
+                    tw("relative flex flex-1 min-w-[1280px] overflow-auto pt-[6rem]", sidebar ? "flex-row" : "flex-col"),
                     className
                 )}
             >

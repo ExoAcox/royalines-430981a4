@@ -48,13 +48,16 @@ const SeatConfigLayout: React.FC<Props> = ({ seats, setSeats }) => {
                                         {Array.from({ length: column }, (_, cellIndex) => {
                                             const isError = !layout.alphabet[lastIndex + cellIndex] || layout.alphabet.filter(value => value === layout.alphabet[lastIndex + cellIndex]).length > 1
 
-                                            return <TextField onChange={(value) => {
-                                                const seats_ = produce(seats, draft => {
-                                                    draft.layouts[layoutIndex].alphabet[lastIndex + cellIndex] = value.slice(0, 2).toUpperCase()
-                                                })
+                                            return <TextField
+                                                key={`alphabet-${lastIndex + cellIndex}`}
+                                                value={layout.alphabet[lastIndex + cellIndex]}
+                                                onChange={(value) => {
+                                                    const seats_ = produce(seats, draft => {
+                                                        draft.layouts[layoutIndex].alphabet[lastIndex + cellIndex] = value.slice(0, 2).toUpperCase()
+                                                    })
 
-                                                setSeats(seats_)
-                                            }} key={cellIndex} parentClassName="mb-2" className={tw("w-10 h-10 rounded-sm px-0.5 text-xs font-semibold", isError && "bg-error-40")} inputClassName="text-center" value={layout.alphabet[lastIndex + cellIndex]} />
+                                                    setSeats(seats_)
+                                                }} parentClassName="mb-2" className={tw("w-10 h-10 rounded-sm px-0.5 text-xs font-semibold", isError && "bg-error-40")} inputClassName="text-center" />
                                         })}
                                     </div>
                                 </div>
@@ -66,14 +69,17 @@ const SeatConfigLayout: React.FC<Props> = ({ seats, setSeats }) => {
                             const isError = !seats.numbering[lastLayoutIndex + rowIndex] || seats.numbering.filter(value => value === seats.numbering[lastLayoutIndex + rowIndex]).length > 1
 
                             return <div key={rowIndex} className="flex gap-12 justify-center">
-                                <TextField onChange={(value_) => {
-                                    let value = value_.replace(/\D/g, '')
-                                    const seats_ = produce(seats, draft => {
-                                        draft.numbering[lastLayoutIndex + rowIndex] = Number(value.slice(0, 3))
-                                    })
+                                <TextField
+                                    key={`numbering-${lastLayoutIndex + rowIndex}`}
+                                    value={seats.numbering[lastLayoutIndex + rowIndex]}
+                                    onChange={(value_) => {
+                                        let value = value_.replace(/\D/g, '')
+                                        const seats_ = produce(seats, draft => {
+                                            draft.numbering[lastLayoutIndex + rowIndex] = Number(value.slice(0, 3))
+                                        })
 
-                                    setSeats(seats_)
-                                }} className={tw("w-10 h-10 rounded-sm px-0.5 text-xs font-semibold", isError && "bg-error-40")} inputClassName="text-center" parentClassName="absolute -left-14" value={seats.numbering[lastLayoutIndex + rowIndex]} />
+                                        setSeats(seats_)
+                                    }} className={tw("w-10 h-10 rounded-sm px-0.5 text-xs font-semibold", isError && "bg-error-40")} inputClassName="text-center" parentClassName="absolute -left-14" />
 
 
                                 {layout.column.map((column, columnIndex) => {

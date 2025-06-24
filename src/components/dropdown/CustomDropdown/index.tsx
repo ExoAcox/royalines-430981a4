@@ -9,23 +9,27 @@ interface Props {
     children: React.ReactNode;
     className?: string;
     parentClassName?: string;
+    panelClassName?: string;
     buttons: {
         label: React.ReactNode;
         onClick: () => void;
     }[]
 }
 
-const CustomDropdown: React.FC<Props> = ({ id, children, buttons, className, parentClassName }) => {
+const CustomDropdown: React.FC<Props> = ({ id, children, buttons, className, parentClassName, panelClassName }) => {
     const [isOpen, setOpen] = useOverlay(`#${id}`)
 
     return <div id={id} className={tw("relative", parentClassName)}>
-        <div className={tw("cursor-pointer", className)} onClick={() => setOpen(true)}>
+        <div className={tw("cursor-pointer", className)} onClick={() => setOpen(!isOpen)}>
             {children}
         </div>
         <When condition={isOpen}>
-            <div className="text-xs flex flex-col w-full absolute -bottom-1 shadow translate-y-full bg-white z-[2] border rounded-md">
+            <div className={tw("text-xs flex flex-col w-min-fit absolute -bottom-1 right-0 shadow translate-y-full bg-white z-[2] border rounded-md", panelClassName)}>
                 {buttons.map((button, index) => {
-                    return <button key={index} className="p-2 hover:bg-primary-bg border-b last:border-none" onClick={button.onClick}>{button.label}</button>
+                    return <button key={index} className="p-2 hover:bg-primary-bg px-4 border-b last:border-none font-medium whitespace-nowrap" onClick={() => {
+                        setOpen(false)
+                        button.onClick()
+                    }}>{button.label}</button>
                 })}
             </div>
         </When>

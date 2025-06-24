@@ -5,18 +5,22 @@ import { PiSeatBold } from "react-icons/pi";
 import { LuFileClock } from "react-icons/lu";
 import { IconType } from "react-icons";
 import { tw } from "@functions/style";
+import { Link } from "@components/navigation";
+
+import { usePathname } from 'next/navigation'
 
 interface ListProps {
     active?: boolean;
     children: React.ReactNode;
     Icon: IconType;
+    href: string;
 }
 
-const List: React.FC<ListProps> = ({ children, active, Icon }) => {
-    return <div className={tw("flex items-center gap-3 p-4 text-grey-80 font-semibold border-l-6 border-transparent", active && "text-primary bg-primary-bg border-primary ")}>
+const List: React.FC<ListProps> = ({ children, active, Icon, href }) => {
+    return <Link href={href} className={tw("flex items-center gap-3 p-4 text-grey-80 font-semibold border-l-6 border-transparent", active && "text-primary bg-primary-bg border-primary ")}>
         <Icon className="w-6 h-6" />
         {children}
-    </div>
+    </Link>
 }
 
 
@@ -25,11 +29,14 @@ interface Props {
 }
 
 const Sidebar: React.FC<Props> = ({ }) => {
+    const pathname = usePathname()
+    console.log(pathname)
+
     return <div className="sticky top-0 bg-white shadow-xs flex flex-col h-full w-[18.75rem]">
-        <List Icon={PiAirplaneTiltBold} active>Manage Flight</List>
-        <List Icon={MdCalendarMonth}>Manage Schedule</List>
-        <List Icon={PiSeatBold}>Flight Plan</List>
-        <List Icon={LuFileClock}>Flight History</List>
+        <List Icon={PiAirplaneTiltBold} href="/manage_flight" active={pathname.startsWith("/manage_flight")}>Manage Flight</List>
+        <List Icon={MdCalendarMonth} href="/manage_schedule" active={pathname.startsWith("/manage_schedule")}>Manage Schedule</List>
+        <List Icon={PiSeatBold} href="/">Flight Plan</List>
+        <List Icon={LuFileClock} href="/">Flight History</List>
     </div>
 }
 

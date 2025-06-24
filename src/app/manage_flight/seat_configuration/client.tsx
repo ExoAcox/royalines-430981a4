@@ -9,26 +9,11 @@ import { useState } from "react";
 import { PiFolderSimplePlusFill } from "react-icons/pi";
 
 const seats_ = {
-    numbering: [1, 2, 3, 4, 10, 11, 12, 99, 21, 22, 23, 24, 25],
+    numbering: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     layouts: [{
         alphabet: ["A", "B", "C", "D", "E", "F", "G", "H"],
         column: [2, 4, 2],
-        row: 2
-    },
-    {
-        alphabet: ["X", "Y", "Z", "M", "N", "O"],
-        column: [2, 2, 2],
-        row: 3
-    },
-    {
-        alphabet: ["A", "B", "G", "H"],
-        column: [2, 0, 0, 0, 2],
-        row: 3
-    },
-    {
-        alphabet: ["A", "B", "C", "D", "E", "F"],
-        column: [3, 0, 3],
-        row: 5
+        row: 10
     }]
 }
 
