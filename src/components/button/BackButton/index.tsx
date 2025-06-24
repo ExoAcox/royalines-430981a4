@@ -6,16 +6,23 @@ import { useRouter } from "next/navigation"
 
 interface Props {
     onClick?: () => void
+    href?: string
 }
 
-const BackButton: React.FC<Props> = ({ onClick }) => {
+const BackButton: React.FC<Props> = ({ onClick, href }) => {
     const { routerChange } = useRouterEvent()
     const router = useRouter()
 
     const back = () => {
         if (onClick) onClick()
         routerChange();
-        router.back()
+
+        if (href) {
+            router.push(href)
+        } else {
+            router.back()
+        }
+
     }
 
     return <GoArrowLeft onClick={back} className="fill-grey-90 cursor-pointer w-6 h-6" />

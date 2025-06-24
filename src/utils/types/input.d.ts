@@ -4,6 +4,7 @@ interface BasicInput {
     parentClassName?: string;
     disabled?: boolean;
     placeholder?: string;
+    example?: string;
     error?: ErrorInput;
 }
 

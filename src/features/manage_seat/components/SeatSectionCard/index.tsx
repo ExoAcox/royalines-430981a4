@@ -37,6 +37,7 @@ const SeatSectionCard: React.FC<Props> = ({ index, column, row, onChange }) => {
                 if (value.startsWith("0")) value = value.slice(1)
                 value = value.slice(-1)
                 if (Number(value) > 6) value = String(6)
+                if (Number(value) < 1) value = String(1)
 
                 if (Number(value) > column.length) {
                     const column_ = produce(column, draft => {
@@ -73,10 +74,10 @@ const SeatSectionCard: React.FC<Props> = ({ index, column, row, onChange }) => {
             <TextField label="Row" onChange={(value_) => {
                 let value = value_.replace(/\D/g, '')
                 if (value.startsWith("0")) value = value.slice(1)
-                if (Number(value) > 30) value = String(30)
+                if (Number(value) > 99) value = String(99)
                 onChange({ row: Number(value), column })
 
-            }} value={row} example="Enter the number of seat rows (max: 30)" className="w-[10rem]" required />
+            }} value={row} example="Enter the number of seat rows (max: 99)" className="w-[10rem]" required />
         </div>
     </div>
 }

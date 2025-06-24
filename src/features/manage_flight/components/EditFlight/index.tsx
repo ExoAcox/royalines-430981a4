@@ -5,6 +5,8 @@ import { HiTrash } from "react-icons/hi2";
 import { PiAirplaneTiltBold, PiFolderSimplePlusFill, PiSeatBold } from "react-icons/pi";
 import { When } from "react-if";
 import SeatCard from "../SeatCard";
+import { useRouterEvent } from "@hooks/useRouter";
+import { useRouter } from "next/navigation";
 
 
 
@@ -14,6 +16,10 @@ interface Props {
 }
 
 const EditFlight: React.FC<Props> = ({ }) => {
+    const { routerChange } = useRouterEvent()
+    const router = useRouter()
+
+
     return <div>
         <div className="flex items-center gap-3 mb-7 rounded-2xl bg-white py-3 px-6 shadow-xs">
             <PiAirplaneTiltBold className="w-6 h-6" />
@@ -50,11 +56,11 @@ const EditFlight: React.FC<Props> = ({ }) => {
             </div>
             <When condition={true}>
                 <div className="flex">
-                    <SeatCard value={100}>Economy Class</SeatCard>
+                    <SeatCard value={100} href="/manage_flight/seat_configuration">Economy Class</SeatCard>
                     <div className="max-w-[1px] flex-1 bg-base-border mx-8" />
-                    <SeatCard value={100}>Business Class</SeatCard>
+                    <SeatCard value={100} href="/manage_flight/seat_configuration">Business Class</SeatCard>
                     <div className="max-w-[1px] flex-1 bg-base-border mx-8" />
-                    <SeatCard value={100}>First Class</SeatCard>
+                    <SeatCard value={100} href="/manage_flight/seat_configuration">First Class</SeatCard>
                 </div>
             </When>
         </div>

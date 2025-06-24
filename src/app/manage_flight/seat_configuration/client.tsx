@@ -16,7 +16,7 @@ const seats_ = {
         row: 2
     },
     {
-        alphabet: ["X", "Y", "Z", "M", "N", "O", "Q", "V"],
+        alphabet: ["X", "Y", "Z", "M", "N", "O"],
         column: [2, 2, 2],
         row: 3
     },
@@ -42,7 +42,7 @@ const SeatConfiguration: React.FC<Page> = ({ }) => {
 
     return <Wrapper sidebar={false}>
         <div className="flex gap-3 items-center bg-white border-b py-4 px-16 z-[2] sticky top-0">
-            <BackButton />
+            <BackButton href="/manage_flight/edit_flight" />
             <h4>Economy Class</h4>
             <Button className="ml-auto gap-3"><PiFolderSimplePlusFill className="w-6 h-6" /> Save Configuration</Button>
         </div>

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Case, Default, Switch, When } from "react-if";
+import { Case, Default, Else, If, Switch, Then, When } from "react-if";
 
 import { tw } from "@functions/style";
 
@@ -7,7 +7,7 @@ import BoxChecked from "@images/vector/box-checked.svg";
 import BoxUncheck from "@images/vector/box-uncheck.svg";
 
 import { Spinner } from "@components/loader";
-import { ErrorInput, LabelInput } from "@components/text";
+import { ErrorInput, ExampleInput, LabelInput } from "@components/text";
 
 interface CheckBox<Value> extends BasicInput {
     value: Value[];
@@ -29,6 +29,7 @@ const CheckBox = <Value,>({
     buttonClassName,
     disabled,
     error,
+    example,
     variant = "normal",
 }: CheckBox<Value>) => {
     const handleClick = (data: Option<Value>) => {
@@ -88,7 +89,10 @@ const CheckBox = <Value,>({
                     );
                 })}
             </div>
-            <ErrorInput error={error} />
+            <If condition={error}>
+                <Then><ErrorInput error={error} /></Then>
+                <Else><ExampleInput className={tw(disabled && "text-grey-60")}>{example}</ExampleInput></Else>
+            </If>
         </div>
     );
 };

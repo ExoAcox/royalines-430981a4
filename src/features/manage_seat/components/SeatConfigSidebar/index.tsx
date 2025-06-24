@@ -30,7 +30,6 @@ const SeatConfigSidebar: React.FC<Props> = ({ seats, setSeats }) => {
             <div className="flex flex-col gap-4">
                 {seats.layouts.map((layout, index) => {
                     return <SeatSectionCard key={index} onChange={({ column, row }) => {
-                        console.log(row)
                         const seats_ = produce(seats, draft => {
                             draft.layouts[index].column = column
                             draft.layouts[index].row = row

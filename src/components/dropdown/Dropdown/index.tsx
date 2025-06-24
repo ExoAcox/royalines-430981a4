@@ -64,7 +64,7 @@ const Dropdown = <Value,>({
 
     const classNamePanel = useMemo(() => {
         return tw(
-            `z-50 absolute z-10 flex flex-col w-full max-h-[20rem] rounded overflow-auto shadow`,
+            `z-50 absolute z-10 flex flex-col min-w-fit max-h-[20rem] min-w-fit w-full overflow-auto shadow`,
             horizontalPosition === "center" && `left-1/2 -translate-x-1/2`,
             horizontalPosition === "left" && `left-0`,
             horizontalPosition === "right" && `right-0`,
@@ -77,7 +77,7 @@ const Dropdown = <Value,>({
     const classNameFinal = useMemo(() => {
         return tw(
             classNameLabel,
-            "h-12 border border-grey-60 rounded-md p-3",
+            "h-12 border border-grey-60 rounded-lg p-3",
             lite && "border-base-border p-2 h-9",
             disabled && "border-tertiary-100 bg-tertiary-100 cursor-default",
             error && "border-error-80",
@@ -157,7 +157,7 @@ const Dropdown = <Value,>({
                                         <button
                                             type="button"
                                             key={String(data.value)}
-                                            className={tw(classNameLabel, "hover:bg-primary-bg", labelClassName, data.className)}
+                                            className={tw(classNameLabel, "hover:bg-primary-bg border-b border-base-border/50", labelClassName, data.className)}
                                             onClick={() => {
                                                 if (data.value !== value) {
                                                     onChange(data.value, data);
