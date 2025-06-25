@@ -25,7 +25,7 @@ const BackButton: React.FC<Props> = ({ onClick, href }) => {
 
     }
 
-    return <GoArrowLeft onClick={back} className="fill-grey-90 cursor-pointer w-6 h-6" />
+    return <GoArrowLeft onClick={back} className="fill-grey-90 cursor-pointer size-6" />
 }
 
 export default BackButton

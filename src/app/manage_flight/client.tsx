@@ -18,7 +18,7 @@ const ManageFlight: React.FC<Page> = ({ }) => {
 
     return <Wrapper>
         <div className="flex items-center gap-3 mb-7">
-            <PiAirplaneTiltBold className="w-6 h-6" />
+            <PiAirplaneTiltBold className="size-6" />
             <h4>Manage Flight</h4>
             <Link href="/manage_flight/edit_flight" className="ml-auto"><Button ><FaPlus /> Add New Flight</Button></Link>
         </div>

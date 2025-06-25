@@ -15,7 +15,7 @@ const TransactionCard: React.FC<Props> = ({ }) => {
             <div className="flex flex-col gap-1">
                 <span className="text-primary text-sm font-bold">INV/20250508/MPL/52188823546</span>
                 <div className="flex gap-2 text-grey-100 text-xs">
-                    <MdCalendarMonth className="w-4 h-4" />
+                    <MdCalendarMonth className="size-4" />
                     08 Mei 2025, 15:38 WIB
                 </div>
             </div>
@@ -30,7 +30,7 @@ const TransactionCard: React.FC<Props> = ({ }) => {
                 <label className="text-grey-70 text-xs">Booking Code</label>
                 <button className="border border-grey-60 rounded-lg py-2 px-3 flex justify-between items-center">
                     <span className="font-semibold text-sm text-grey-80">BQ9147K</span>
-                    <FaRegCopy className="w-5 h-5 fill-grey-70" />
+                    <FaRegCopy className="size-5 fill-grey-70" />
                 </button>
                 <label className="text-grey-70 text-xs mt-2">Payment Method</label>
                 <span className="text-sm">BCA Virtual Account</span>

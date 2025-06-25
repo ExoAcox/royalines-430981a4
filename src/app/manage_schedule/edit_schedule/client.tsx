@@ -1,7 +1,7 @@
 "use client"
 
 import { Wrapper } from "@components/layout"
-import { EditSchedule } from "@features/manage_schedule/components";
+import { EditSchedule, SelectRouteModal } from "@features/manage_schedule/components";
 import { useRouterEvent } from "@hooks/useRouter";
 import { useRouter } from "next/navigation";
 
@@ -23,6 +23,7 @@ const ManageScheduleAdd: React.FC<Page> = ({ }) => {
 
     return <Wrapper>
         <EditSchedule onCancel={handleCancel} onSave={handleSave} />
+        <SelectRouteModal onSelect={() => null} />
     </Wrapper>
 }
 

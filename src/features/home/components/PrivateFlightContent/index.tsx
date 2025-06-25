@@ -35,7 +35,7 @@ const MainContent: React.FC<Props> = ({ }) => {
         <div className="relative">
             <FlightInput />
             <button className="right-0 top-1/2 -translate-y-1/2 absolute text-[#1A94FF] border-[#1A94FF] border rounded-full p-1" onClick={onSwitchDestination}>
-                <GoArrowSwitch className="w-4 h-4" />
+                <GoArrowSwitch className="size-4" />
             </button>
         </div>
 

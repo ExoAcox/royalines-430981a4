@@ -5,7 +5,6 @@ import { IoIosArrowDown } from "react-icons/io";
 import { TextField } from "@components/input";
 import { ExampleInput, LabelInput } from "@components/text";
 import { produce } from "immer"
-import { formatInputNumber } from "@functions/common";
 
 
 
@@ -21,7 +20,6 @@ const SeatSectionCard: React.FC<Props> = ({ index, column, row, onChange, onDele
 
     const totalSeat = column.reduce((acc, current) => acc + current, 0) * row
 
-    console.log(formatInputNumber(row.toString()), row)
 
     return <div >
         <div className="flex items-center py-1 border-b gap-2.5 mb-2">
@@ -30,7 +28,7 @@ const SeatSectionCard: React.FC<Props> = ({ index, column, row, onChange, onDele
             <CustomDropdown id={`seat-${index + 1}-dropdown`} buttons={[{
                 label: "Delete Section",
                 onClick: onDelete
-            }]}><IoIosArrowDown className="w-5 h-5" /></CustomDropdown>
+            }]}><IoIosArrowDown className="size-5" /></CustomDropdown>
         </div>
         <div className="flex flex-col gap-4">
             <TextField label="Column" onChange={value_ => {

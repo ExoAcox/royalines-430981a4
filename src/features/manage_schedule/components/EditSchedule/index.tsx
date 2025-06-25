@@ -8,6 +8,7 @@ import { PiFolderSimplePlusFill, PiSeatBold } from "react-icons/pi";
 import { HiMiniClock } from "react-icons/hi2";
 import { When } from "react-if";
 import ScheduleCard from "../ScheduleCard";
+import useModal from "@hooks/useModal";
 
 
 
@@ -18,12 +19,14 @@ interface Props {
 }
 
 const EditSchedule: React.FC<Props> = ({ isEdit }) => {
+    const { setModal } = useModal("select-route-modal")
+
     return <div className="pb-8">
         <div className="flex items-center gap-3 mb-7 rounded-2xl bg-white py-3 px-6 shadow-xs">
-            <MdCalendarMonth className="w-6 h-6" />
+            <MdCalendarMonth className="size-6" />
             <h4>{isEdit ? "Edit Schedule" : "Add New Schedule"}</h4>
-            <Button className="ml-auto mr-1 text-error-80 border-error-80" variant="ghost"><HiTrash className="w-6 h-6" /> Cancel</Button>
-            <Button ><PiFolderSimplePlusFill className="w-6 h-6" /> Save Schedule</Button>
+            <Button className="ml-auto mr-1 text-error-80 border-error-80" variant="ghost"><HiTrash className="size-6" /> Cancel</Button>
+            <Button ><PiFolderSimplePlusFill className="size-6" /> Save Schedule</Button>
         </div>
         <div className="bg-white p-5 rounded-2xl shadow-xs flex flex-col gap-4">
             <div className="flex gap-8">
@@ -37,18 +40,18 @@ const EditSchedule: React.FC<Props> = ({ isEdit }) => {
                 },]} onChange={() => null} example="This action is final. You cannot edit it once it’s published" />
             </div>
             <div className="flex gap-8">
-                <TextField label="Route" placeholder="Select Route" required className="cursor-pointer" inputClassName="cursor-pointer" parentClassName="flex-1" suffix={<MdOutlineKeyboardArrowDown />} />
+                <TextField onClick={() => setModal(true)} label="Route" placeholder="Select Route" required className="cursor-pointer" inputClassName="cursor-pointer" parentClassName="flex-1" suffix={<MdOutlineKeyboardArrowDown />} />
                 <div className="flex-1" />
             </div>
             <label className="text-lg font-semibold mt-2">Departure</label>
             <div className="flex gap-8 items-start">
                 <DateInput date={1} month={5} year={2025} onChange={() => null} />
-                <TextField label="Time" placeholder="00:00:00" required prefix={<HiMiniClock className="w-6 h-6" />} suffix={<div className="px-1.5 py-1 border rounded-md -mr-1.5 font-medium text-grey-100">UTC+7</div>} example="UTC will be adjusted automatically based on the selected airport." />
+                <TextField label="Time" placeholder="00:00:00" required prefix={<HiMiniClock className="size-6" />} suffix={<div className="px-1.5 py-1 border rounded-md -mr-1.5 font-medium text-grey-100">UTC+7</div>} example="UTC will be adjusted automatically based on the selected airport." />
             </div>
             <label className="text-lg font-semibold">Arrival</label>
             <div className="flex gap-8 items-start">
                 <DateInput date={1} month={5} year={2025} onChange={() => null} />
-                <TextField label="Time" placeholder="00:00:00" required prefix={<HiMiniClock className="w-6 h-6" />} suffix={<div className="px-1.5 py-1 border rounded-md -mr-1.5 font-medium text-grey-100">UTC+7</div>} example="UTC will be adjusted automatically based on the selected airport." />
+                <TextField label="Time" placeholder="00:00:00" required prefix={<HiMiniClock className="size-6" />} suffix={<div className="px-1.5 py-1 border rounded-md -mr-1.5 font-medium text-grey-100">UTC+7</div>} example="UTC will be adjusted automatically based on the selected airport." />
             </div>
             <label className="text-lg font-semibold mt-2">Seat Price</label>
             <div className="flex">

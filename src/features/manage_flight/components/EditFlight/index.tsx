@@ -22,10 +22,10 @@ const EditFlight: React.FC<Props> = ({ }) => {
 
     return <div>
         <div className="flex items-center gap-3 mb-7 rounded-2xl bg-white py-3 px-6 shadow-xs">
-            <PiAirplaneTiltBold className="w-6 h-6" />
+            <PiAirplaneTiltBold className="size-6" />
             <h4>Manage Flight</h4>
-            <Button className="ml-auto mr-1 gap-3 text-error-80 border-error-80" variant="ghost"><HiTrash /> Cancel</Button>
-            <Button className="gap-3"><PiFolderSimplePlusFill /> Save Flight</Button>
+            <Button className="ml-auto mr-1 text-error-80 border-error-80" variant="ghost"><HiTrash className="size-6" /> Cancel</Button>
+            <Button ><PiFolderSimplePlusFill className="size-6" /> Save Flight</Button>
         </div>
         <div className="bg-white p-5 rounded-2xl shadow-xs flex flex-col gap-4">
             <div className="flex gap-8">

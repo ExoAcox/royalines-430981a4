@@ -29,7 +29,7 @@ const SeatConfiguration: React.FC<Page> = ({ }) => {
         <div className="flex gap-3 items-center bg-white border-b py-4 px-16 z-[2] sticky top-0">
             <BackButton href="/manage_flight/edit_flight" />
             <h4>Economy Class</h4>
-            <Button className="ml-auto gap-3"><PiFolderSimplePlusFill className="w-6 h-6" /> Save Configuration</Button>
+            <Button className="ml-auto gap-3"><PiFolderSimplePlusFill className="size-6" /> Save Configuration</Button>
         </div>
         <div className="flex-1 flex">
             <div className="max-h-[calc(100dvh-11.75rem)] sticky top-19 overflow-auto">

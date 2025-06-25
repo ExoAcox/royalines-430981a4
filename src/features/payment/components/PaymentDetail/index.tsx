@@ -15,7 +15,7 @@ const PaymentDetail: React.FC<Props> = ({ }) => {
             <div className="flex flex-col gap-1">
                 <h5 className="text-primary">Payment Detail</h5>
                 <span className="flex items-center gap-1 text-grey-100 text-xs">
-                    <MdCalendarMonth className="w-4 h-4" />
+                    <MdCalendarMonth className="size-4" />
                     08 Mei 2025, 15:38 WIB
                 </span>
             </div>
@@ -27,7 +27,7 @@ const PaymentDetail: React.FC<Props> = ({ }) => {
             <label className="text-grey-70 text-xs mt-2">Transfer to</label>
             <button className="border h-12 border-grey-60 rounded-lg py-2 px-3 flex justify-between items-center">
                 <h5 className="text-grey-80">61167613</h5>
-                <FaRegCopy className="w-5 h-5 fill-grey-70" />
+                <FaRegCopy className="size-5 fill-grey-70" />
             </button>
         </div>
         <div className="flex items-center justify-between">

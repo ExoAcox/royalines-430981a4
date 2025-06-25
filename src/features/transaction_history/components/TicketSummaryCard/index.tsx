@@ -22,7 +22,7 @@ const SummaryCard: React.FC<Props> = ({ }) => {
                 <label className="text-black font-semibold">Booking Code</label>
                 <button className="border border-grey-60 rounded-lg py-2 px-3 flex justify-between items-center">
                     <h5 className="text-grey-80">BQ9147K</h5>
-                    <FaRegCopy className="w-5 h-5 fill-grey-70" />
+                    <FaRegCopy className="size-5 fill-grey-70" />
                 </button>
             </div>
         </div>

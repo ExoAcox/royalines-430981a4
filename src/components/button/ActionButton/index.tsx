@@ -5,62 +5,58 @@ import { PiAddressBook } from "react-icons/pi";
 import { IoEye } from "react-icons/io5";
 import { HiMiniTicket } from "react-icons/hi2";
 import { IoMdCart } from "react-icons/io";
-import { MdModeEdit } from "react-icons/md";
+import { MdModeEdit, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { tw } from "@functions/style";
 import useOverlay from "@hooks/useOverlay";
 import { When } from "react-if";
 
 
 interface Props {
-    type: "fill_passenger" | "pay_full" | "send_ticket" | "view_receipt" | "edit_passenger" | "view_passenger";
+    type: "edit" | "view_seat" | "edit_status" | "view_report"
     onClick?: () => void;
-    onEdit?: () => void;
-    onDelete?: () => void;
+    onSchedule?: () => void;
+    onCancel?: () => void;
     id?: string;
 }
 
-const ActionButton: React.FC<Props> = ({ type, onClick, onEdit, onDelete, id }) => {
-    const iconClassName = "w-4 h-4"
+const ActionButton: React.FC<Props> = ({ type, onClick, onSchedule, onCancel, id }) => {
+    const iconClassName = "size-4"
     const className = tw("h-8 w-[9rem] text-xs")
-    const variant = ["view_passenger", "view_receipt"].includes(type) ? "ghost" : "filled"
+    const variant = ["edit_status"].includes(type) ? "ghost" : "filled"
 
-    const EditButton = () => {
+    const EditStatusButton = () => {
         const [isOpen, setOpen] = useOverlay(`#${id}`)
 
         return <div id={id} className="relative">
-            <Button className={className} variant={variant} onClick={() => setOpen(true)}><MdModeEdit className={iconClassName} /> Edit</Button>
+            <Button className={className} variant={variant} onClick={() => setOpen(!isOpen)}>Edit Status <MdOutlineKeyboardArrowDown className={iconClassName} /> </Button>
             <When condition={isOpen}>
-                <div className="text-xs flex flex-col w-full absolute -bottom-1 shadow translate-y-full bg-white z-[2] border rounded-md">
-                    <button className="p-2 hover:bg-primary-bg border-b" onClick={() => {
+                <div className="text-xs flex flex-col w-full absolute font-semibold -bottom-1 shadow translate-y-full bg-white z-[2] border rounded-md">
+                    <button className="text-grey-80 p-2 hover:bg-primary-bg border-b" onClick={() => {
                         setOpen(false);
-                        if (onEdit) onEdit()
-                    }}>Edit Data</button>
-                    <button className="p-2 hover:bg-primary-bg" onClick={() => {
+                        if (onSchedule) onSchedule()
+                    }}>Scheduled</button>
+                    <button className="text-error-80 p-2 hover:bg-primary-bg" onClick={() => {
                         setOpen(false);
-                        if (onDelete) onDelete()
-                    }}>Delete</button>
+                        if (onCancel) onCancel()
+                    }}>Cancelled</button>
                 </div>
             </When>
         </div>
     }
 
-    if (type === "edit_passenger") return <EditButton />
+    if (type === "edit_status") return <EditStatusButton />
 
 
     const content = useMemo(() => {
 
 
         switch (type) {
-            case "fill_passenger":
-                return <><PiAddressBook className={iconClassName} /> Fill Passengers</>;
-            case "pay_full":
-                return <><IoMdCart className={iconClassName} /> Pay Full Now</>;
-            case "send_ticket":
-                return <><HiMiniTicket className={iconClassName} /> Send E-Ticket</>;
-            case "view_receipt":
-                return <><IoEye className={iconClassName} /> View Receipt</>
-            case "view_passenger":
-                return <><IoEye className={iconClassName} /> View Data</>
+            case "edit":
+                return <><MdModeEdit className={iconClassName} /> Edit</>;
+            case "view_seat":
+                return <><IoEye className={iconClassName} /> View Seat</>;
+            case "view_report":
+                return <><IoEye className={iconClassName} /> View Report</>;
         }
     }, [type])
 

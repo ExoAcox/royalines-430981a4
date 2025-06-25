@@ -29,17 +29,17 @@ const FlightHeader: React.FC<Props> = ({ data }) => {
             <button className="absolute flex-center top-4 left-4 w-8 h-8 border rounded-full" onClick={back}><IoIosArrowBack /></button>
             <label className="font-semibold flex items-center gap-2">{`${data.origin.city} (${data.origin.airport_iata})`} <FaArrowRight /> {`${data.destination.city} (${data.destination.airport_iata})`}</label>
             <div className="flex items-center gap-3">
-                <FaPlaneDeparture className="w-6 h-6" />
+                <FaPlaneDeparture className="size-6" />
                 <span className="font-medium">
                     {data.passenger} passengers - {data.class}
                 </span>
-                <button className="w-6 h-6 rounded-full border border-white flex-center">
+                <button className="size-6 rounded-full border border-white flex-center">
                     <MdOutlineKeyboardArrowDown />
                 </button>
             </div>
         </div>
         <div className="bg-white p-4 rounded-b-2xl">
-            <Button className="ml-auto text-sm font-bold rounded-2xl px-3 py-1.5" variant="ghost"><LuArrowDownUp className="w-5 h-5 mr-1" /> Lowest price</Button>
+            <Button className="ml-auto text-sm font-bold rounded-2xl px-3 py-1.5" variant="ghost"><LuArrowDownUp className="size-5 mr-1" /> Lowest price</Button>
         </div>
     </div>
 }

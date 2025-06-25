@@ -22,7 +22,7 @@ const Box: React.FC<BoxProps> = ({ occupied, selected, onClick }) => {
         occupied && "bg-grey-50 cursor-not-allowed",
         selected > 0 && "bg-success-70 cursor-default")}>
         <When condition={occupied}>
-            <MdClose className="fill-grey-90 w-5 h-5" />
+            <MdClose className="fill-grey-90 size-5" />
         </When>
         <When condition={selected}>
             {selected}

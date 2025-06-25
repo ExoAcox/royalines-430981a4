@@ -17,6 +17,7 @@ export interface TextField extends BasicInput {
     max?: number;
     min?: number;
     onkeyDown?: (value: string) => void;
+    onClick?: () => void;
     required?: boolean;
 }
 
@@ -39,7 +40,8 @@ const TextField: React.FC<TextField> = ({
     max,
     min,
     required,
-    onkeyDown
+    onkeyDown,
+    onClick
 }) => {
     const inputProps = { value, placeholder, type, disabled, max, min };
 
@@ -55,7 +57,9 @@ const TextField: React.FC<TextField> = ({
     return (
         <div className={tw(parentClassName)}>
             <LabelInput className={tw(disabled && "text-grey-60", labelClassName)} required={required}>{label}</LabelInput>
-            <div className={classNameFinal}>
+            <div className={classNameFinal} onClick={() => {
+                if (onClick) onClick()
+            }}>
                 {prefix}
                 <input
                     className={tw("flex-1 w-full focus:outline-none text-grey-90 placeholder:text-grey-60", disabled && "bg-grey-30 text-grey-60", inputClassName)}

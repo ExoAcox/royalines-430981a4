@@ -12,7 +12,7 @@ interface Props {
 const FlightHeader: React.FC<Props> = ({ }) => {
     return <div className="text-black mb-4">
         <div className="flex items-center gap-3">
-            <LuTicketCheck className="w-6 h-6 ml-4" />
+            <LuTicketCheck className="size-6 ml-4" />
             <h4 className="mr-auto">Royal Flight</h4>
 
         </div>

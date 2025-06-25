@@ -6,7 +6,7 @@ import { useRouterEvent } from "@hooks/useRouter";
 import { useRouter } from "next/navigation";
 
 
-const ManageFlightAdd: React.FC<Page> = ({ }) => {
+const ManageFlight: React.FC<Page> = ({ }) => {
     const { routerChange } = useRouterEvent()
     const router = useRouter()
 
@@ -26,4 +26,4 @@ const ManageFlightAdd: React.FC<Page> = ({ }) => {
     </Wrapper>
 }
 
-export default ManageFlightAdd;
+export default ManageFlight;

@@ -45,7 +45,6 @@ const SeatConfigSidebar: React.FC<Props> = ({ seats, setSeats }) => {
                     for (let i = 0; i < nextAlphabetLength - currentAlphabetLength; i++) {
                         const lastAlphabet = seats.layouts[index].alphabet.at(-1)
                         const lastCharCode = lastAlphabet?.charCodeAt(lastAlphabet.length - 1) ?? 64
-                        console.log(lastCharCode, seats.layouts[index].alphabet)
                         draft.layouts[index].alphabet.push(`${lastAlphabet?.length === 2 ? lastAlphabet[0] : ""}${String.fromCharCode(lastCharCode + i + 1)}`)
                     }
                 } else {
