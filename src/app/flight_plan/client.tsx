@@ -7,9 +7,12 @@ import { Table, TableBody, TableHeader } from "@components/table";
 import { TextField } from "@components/input";
 import { IoSearch } from "react-icons/io5";
 import { PiSeatBold } from "react-icons/pi";
+import { CancelModal } from "@features/flight_plan/components";
+import useModal from "@hooks/useModal";
 
 
 const FlightPlan: React.FC<Page> = ({ }) => {
+    const cancelModal = useModal("flight-plan-cancel-modal")
 
 
     return <Wrapper>
@@ -29,7 +32,7 @@ const FlightPlan: React.FC<Page> = ({ }) => {
                     <BookingBadge color="red" />,
                     <div className="flex flex-col gap-2 items-center">
                         <ActionButton type="view_seat" />
-                        <ActionButton type="edit_status" id={`edit-button-1`} />
+                        <ActionButton type="edit_status" id={`edit-button-1`} onCancel={() => cancelModal.setData({ code: "RJL-45" })} />
                     </div>
                 ],
                 [
@@ -40,7 +43,7 @@ const FlightPlan: React.FC<Page> = ({ }) => {
                     <BookingBadge color="red" />,
                     <div className="flex flex-col gap-2 items-center">
                         <ActionButton type="view_seat" />
-                        <ActionButton type="edit_status" id={`edit-button-2`} />
+                        <ActionButton type="edit_status" id={`edit-button-2`} onCancel={() => cancelModal.setData({ code: "RJL-45" })} />
                     </div>
                 ],
                 [
@@ -51,7 +54,7 @@ const FlightPlan: React.FC<Page> = ({ }) => {
                     <BookingBadge color="red" />,
                     <div className="flex flex-col gap-2 items-center">
                         <ActionButton type="view_seat" />
-                        <ActionButton type="edit_status" id={`edit-button-3`} />
+                        <ActionButton type="edit_status" id={`edit-button-3`} onCancel={() => cancelModal.setData({ code: "RJL-45" })} />
                     </div>
                 ],
                 [
@@ -62,11 +65,13 @@ const FlightPlan: React.FC<Page> = ({ }) => {
                     <BookingBadge color="red" />,
                     <div className="flex flex-col gap-2 items-center">
                         <ActionButton type="view_seat" />
-                        <ActionButton type="edit_status" id={`edit-button-4`} />
+                        <ActionButton type="edit_status" id={`edit-button-4`} onCancel={() => cancelModal.setData({ code: "RJL-45" })} />
                     </div>
                 ]
             ]} />
         </Table>
+
+        <CancelModal />
     </Wrapper>
 }
 

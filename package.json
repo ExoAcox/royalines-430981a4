@@ -29,6 +29,7 @@
     "spinners-react": "^1.0.11",
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.6",
+    "uniqolor": "^1.1.1",
     "use-ripple-hook": "^1.0.24",
     "zustand": "^5.0.4"
   },

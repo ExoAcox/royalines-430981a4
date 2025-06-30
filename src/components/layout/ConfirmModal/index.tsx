@@ -18,15 +18,15 @@ interface Props {
 const ConfirmModal: React.FC<Props> = ({ id, title, children, buttons }) => {
     const { modal, data } = useModal(id);
 
-    return <Modal visible={modal} centered className="!mt-24 !max-w-[27.5rem]">
+    return <Modal visible={modal} centered className="!max-w-[27.5rem]">
         <h4 className="text-center">{title(data)}</h4>
-        <p className="text-center my-5">{children}</p>
-        <Button onClick={buttons[0].onClick} className="w-full">
+        <p className="text-center mt-2 mb-4">{children}</p>
+        <Button onClick={buttons[0].onClick} className="w-full flex items-center">
             {buttons[0].label}
         </Button>
-        <Button onClick={buttons[1].onClick} className="w-full text-error-80 " variant="nude">
+        <button onClick={buttons[1].onClick} className="mt-4 mx-auto block text-error-80 border-b border-error-80">
             {buttons[1].label}
-        </Button>
+        </button>
     </Modal>
 }
 

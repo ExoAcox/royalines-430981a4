@@ -7,22 +7,22 @@ interface Props {
 
 }
 
-const id = "cancel-manage-flight-modal"
+const id = "decline-manage-user-modal"
 
 const CancelModal: React.FC<Props> = ({ }) => {
     const { setModal } = useModal(id)
 
     return <ConfirmModal id={id}
-        title={() => "Confirm adding new flight?"}
+        title={() => "Decline this user?"}
         buttons={[{
-            label: "Continue Edit",
+            label: "Decline User",
             onClick: () => setModal(false)
         },
         {
-            label: "Cancel Adding",
+            label: "Cancel decline",
             onClick: () => setModal(false)
         }]}>
-        This action cannot be undone once you click "Save Changes"
+        This user will be declined permanently
     </ConfirmModal>
 }
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@components/button";
+import { ActionButton, Button } from "@components/button";
 import { Wrapper } from "@components/layout"
 import { Table, TableBody, TableHeader } from "@components/table";
 
@@ -32,8 +32,8 @@ const ManageFlight: React.FC<Page> = ({ }) => {
                     "Economy, Business",
                     400,
                     <div className="flex gap-2 justify-center">
-                        <Link href="/manage_flight/edit_flight"><Button className="h-8 w-24"><MdEdit /> Edit</Button></Link>
-                        <Button className="h-8 w-24 text-error-80 border-error-80" variant="ghost"><HiTrash /> Delete</Button>
+                        <Link href="/manage_flight/edit_flight"><ActionButton type="edit" className="w-24" /></Link>
+                        <ActionButton type="delete" className="w-24" />
                     </div>
                 ],
                 [
@@ -42,8 +42,8 @@ const ManageFlight: React.FC<Page> = ({ }) => {
                     "Economy, Business",
                     400,
                     <div className="flex gap-2 justify-center">
-                        <Link href="/manage_flight/edit_flight"><Button className="h-8 w-24"><MdEdit /> Edit</Button></Link>
-                        <Button className="h-8 w-24 text-error-80 border-error-80" variant="ghost"><HiTrash /> Delete</Button>
+                        <Link href="/manage_flight/edit_flight"><ActionButton type="edit" className="w-24" /></Link>
+                        <ActionButton type="delete" className="w-24" />
                     </div>
                 ],
                 [
@@ -52,8 +52,8 @@ const ManageFlight: React.FC<Page> = ({ }) => {
                     "Economy, Business",
                     400,
                     <div className="flex gap-2 justify-center">
-                        <Link href="/manage_flight/edit_flight"><Button className="h-8 w-24"><MdEdit /> Edit</Button></Link>
-                        <Button className="h-8 w-24 text-error-80 border-error-80" variant="ghost"><HiTrash /> Delete</Button>
+                        <Link href="/manage_flight/edit_flight"><ActionButton type="edit" className="w-24" /></Link>
+                        <ActionButton type="delete" className="w-24" />
                     </div>
                 ],
                 [
@@ -62,8 +62,8 @@ const ManageFlight: React.FC<Page> = ({ }) => {
                     "Economy, Business",
                     400,
                     <div className="flex gap-2 justify-center">
-                        <Link href="/manage_flight/edit_flight"><Button className="h-8 w-24"><MdEdit /> Edit</Button></Link>
-                        <Button className="h-8 w-24 text-error-80 border-error-80" variant="ghost"><HiTrash /> Delete</Button>
+                        <Link href="/manage_flight/edit_flight"><ActionButton type="edit" className="w-24" /></Link>
+                        <ActionButton type="delete" className="w-24" />
                     </div>
                 ]
             ]} />

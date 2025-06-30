@@ -2,7 +2,8 @@
 import { PiAirplaneTiltBold } from "react-icons/pi";
 import { MdCalendarMonth } from "react-icons/md";
 import { PiSeatBold } from "react-icons/pi";
-import { LuFileClock } from "react-icons/lu";
+import { LuFileClock, LuUsersRound } from "react-icons/lu";
+import { TbPlaneDeparture } from "react-icons/tb";
 import { IconType } from "react-icons";
 import { tw } from "@functions/style";
 import { Link } from "@components/navigation";
@@ -36,6 +37,9 @@ const Sidebar: React.FC<Props> = ({ }) => {
         <List Icon={MdCalendarMonth} href="/manage_schedule" active={pathname.startsWith("/manage_schedule")}>Manage Schedule</List>
         <List Icon={PiSeatBold} href="/flight_plan" active={pathname.startsWith("/flight_plan")}>Flight Plan</List>
         <List Icon={LuFileClock} href="/flight_history" active={pathname.startsWith("/flight_history")}>Flight History</List>
+        <List Icon={PiAirplaneTiltBold} href="/manage_airline" active={pathname.startsWith("/manage_airline")}>Manage Airlines</List>
+        <List Icon={TbPlaneDeparture} href="/manage_airport" active={pathname.startsWith("/manage_airport")}>Manage Airport</List>
+        <List Icon={LuUsersRound} href="/manage_user" active={pathname.startsWith("/manage_user")}>Manage Users</List>
     </div>
 }
 

@@ -10,7 +10,7 @@ import { Spinner } from "@components/loader";
 interface Button {
     children?: React.ReactNode;
     onClick?: React.MouseEventHandler;
-    color?: "primary" | "secondary";
+    color?: "green" | "red";
     variant?: "filled" | "ghost" | "nude";
     type?: "button" | "submit";
     rippleColor?: string;
@@ -23,19 +23,21 @@ interface Button {
 
 const getColor = (color: string) => {
     switch (color) {
+        case "red":
+            return "text-error-80 bg-primary border-error-80 disabled:text-grey-70 disabled:border-grey-20";
         case "secondary":
             return "text-grey-90 bg-primary border-primary disabled:text-grey-70 disabled:border-grey-20";
         default:
-            return "text-grey-90 bg-primary border-primary disabled:text-grey-70 disabled:border-grey-20";
+            return "text-primary bg-primary border-primary disabled:text-grey-70 disabled:border-grey-20";
     }
 };
 
 const getVariant = (variant: string, color: string) => {
     switch (variant) {
         case "ghost":
-            return `bg-white ${color === "primary" ? "text-primary" : "text-primary"}`;
+            return `bg-white`;
         case "nude":
-            return `bg-transparent border-transparent disabled:border-transparent ${color === "primary" ? "text-primary" : "text-primary"}`;
+            return `bg-transparent border-transparent disabled:border-transparent`;
         default:
             return `text-white disabled:bg-grey-20`;
     }
@@ -44,7 +46,7 @@ const getVariant = (variant: string, color: string) => {
 const Button: React.FC<Button> = ({
     children,
     onClick,
-    color = "primary",
+    color = "green",
     variant = "filled",
     type = "button",
     rippleColor,
@@ -72,7 +74,7 @@ const Button: React.FC<Button> = ({
     const hoverColorFinal = useMemo(() => {
         if (hoverColor) return hoverColor;
 
-        if (variant === "filled" || color === "secondary") {
+        if (variant === "filled" || color === "red") {
             return "bg-black/5";
         } else {
             return "bg-primary/5";
@@ -91,7 +93,7 @@ const Button: React.FC<Button> = ({
             {children}
             {loading && (
                 <Spinner
-                    color={variant === "filled" ? "#fff" : color === "primary" ? "var(--color-primary)" : "var(--color-primary)"}
+                    color={variant === "filled" ? "#fff" : color === "green" ? "var(--color-primary)" : "var(--color-primary)"}
                     className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                     size={buttonRef.current?.offsetHeight ? (buttonRef.current?.offsetHeight / 10) * 6 : undefined}
                 />

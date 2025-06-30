@@ -1,6 +1,6 @@
 import { Button, Chip } from "@components/button"
 import { PiSeatBold } from "react-icons/pi"
-import SeatSectionCard from "../SeatSectionCard"
+import SeatConfigCard from "../SeatConfigCard"
 import { FaPlus } from "react-icons/fa6"
 import { produce } from "immer"
 
@@ -64,7 +64,7 @@ const SeatConfigSidebar: React.FC<Props> = ({ seats, setSeats }) => {
             </div>
             <div className="flex flex-col gap-4">
                 {seats.layouts.map((layout, index) => {
-                    return <SeatSectionCard key={index}
+                    return <SeatConfigCard key={index}
                         onChange={({ column, row }) => {
                             const seats_ = produce(seats, draft => {
                                 draft.layouts[index].column = column
